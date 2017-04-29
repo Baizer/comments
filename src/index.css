@@ -30,6 +30,7 @@ body {
 .commentsModule{
   width: 600px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 .commentsForm{
   display: flex;

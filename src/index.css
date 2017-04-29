@@ -1,0 +1,76 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.commentsModule{
+  width: 600px;
+  margin: 0 auto;
+}
+.commentsForm{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.text{
+  width: 100%;
+}
+.commentsModule textarea{
+  min-height: 50px;
+  width: 100%;
+  padding: 0;
+}
+.name{
+  flex: 3;
+  text-align: left;
+}
+.submit{
+  flex: 1;
+  text-align: right;
+}
+.commentsList{
+  margin-top: 20px;
+}
+.comment{
+  border: 1px solid black;
+  text-align: left;
+}
+.comment > .commentsList{
+  margin-left: 20px;
+  margin-top: 0px;
+}
+.commentHeader{
+  text-align: left;
+}
+
+.commentHeader > * {
+  margin: 0 15px;
+}
+.commentText,.commentHeader{
+  margin: 5px;
+}
+

@@ -2,10 +2,12 @@ import { EventEmitter } from "events";
 import dispatcher from "../dispatcher";
 
 class Comment {
-  constructor(text, author, coef) {
+  constructor(text, author, coef, toWhom) {
     this.author = author;
     this.text = text;
+    this.toWhom = toWhom;
     this.children = [];
+    this.highlight = false;
     this.data_id = coef ? Date.now() + coef : Date.now();
     this.date = Date.now();
     this.likes = coef ? 0 + coef : 0;
@@ -13,6 +15,10 @@ class Comment {
 
   addLike() {
     this.likes += 1;
+  }
+
+  sethighlight(val) {
+    this.highlight = val;
   }
 
   addChild(comment) {
@@ -33,10 +39,14 @@ class CommentsStore extends EventEmitter {
     this.emit("change");
   }
 
-  createComment(text, author, comment) {
+  highlight(comment) {
+    comment.sethighlight(!comment.highlight);
+    this.emit("change");
+  }
 
+  createComment(text, author, comment, toWhom) {
     if (comment) {
-      comment.addChild(new Comment(text, author));
+      comment.addChild(new Comment(text, author, null, toWhom));
     } else {
       this.comments.push(new Comment(text, author));
     }
@@ -52,12 +62,17 @@ class CommentsStore extends EventEmitter {
     switch (action.type) {
       case "CREATE_COMMENT":
         {
-          this.createComment(action.text, action.author, action.comment);
+          this.createComment(action.text, action.author, action.comment, action.toWhom);
           break;
         }
       case "LIKE_COMMENT":
         {
           this.likeComment(action.comment);
+          break;
+        }
+      case "HIGHLIGHT_COMMENT":
+        {
+          this.highlight(action.comment);
           break;
         }
         /* no default */

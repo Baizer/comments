@@ -11,6 +11,7 @@ export default class CommentsList extends Component {
       createComment,
       likeComment,
       isChildren,
+      highlight
     } = this.props;
 
     comments.sort((a, b) => {
@@ -32,11 +33,13 @@ export default class CommentsList extends Component {
                 likeComment={likeComment}
                 createComment={createComment}
                 parent={isChildren}
+                highlight={highlight}
                 comment={comment}
                 key={comment.data_id} 
               >
                 {createComment ? <CommentsList 
                                   isChildren={comment} 
+                                  highlight={highlight}
                                   likeComment={likeComment}
                                   createComment={createComment}
                                   comments={comment.children}/> 

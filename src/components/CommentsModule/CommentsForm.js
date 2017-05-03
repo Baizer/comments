@@ -14,8 +14,8 @@ export default class CommentsForm extends Component {
   handleChange(event) {
 
     const target = event.target,
-      value = target.value,
-      name = target.name;
+          value = target.value,
+          name = target.name;
 
     this.setState({
       [name]: value
@@ -40,7 +40,7 @@ export default class CommentsForm extends Component {
       this.props.toggleForm(event);
     };
 
-    this.props.createComment(text, author, this.props.comment);
+    this.props.createComment(text, author, this.props.comment, this.props.toWhom);
   }
 
 

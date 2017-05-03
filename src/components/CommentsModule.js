@@ -30,12 +30,16 @@ export default class CommentsModule extends Component {
     });
   }
 
-  createComment(text, author, comment) {
-    CommentsActions.createComment(text, author, comment);
+  createComment(text, author, comment, toWhom) {
+    CommentsActions.createComment(text, author, comment, toWhom);
   }
 
   likeComment(comment) {
     CommentsActions.likeComment(comment);
+  }
+
+  highlight(comment) {
+    CommentsActions.highlight(comment);
   }
 
   render() {
@@ -45,6 +49,7 @@ export default class CommentsModule extends Component {
       <div className="commentsModule">
         <CommentsForm createComment={this.createComment}/>
         <CommentsList likeComment={this.likeComment} 
+                      highlight={this.highlight}
                       createComment={this.createComment} 
                       comments={comments}/>
       </div>

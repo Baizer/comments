@@ -34,6 +34,7 @@ body {
 }
 .commentsForm{
   display: flex;
+  padding: 10px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -56,9 +57,19 @@ body {
 .commentsList{
   margin-top: 20px;
 }
+button{
+  cursor: pointer;
+}
 .comment{
   border: 1px solid black;
   text-align: left;
+}
+.toWhom{
+  color: #07C;
+  cursor: pointer;
+}
+.highlight{
+  outline: 1px solid red;
 }
 .comment > .commentsList{
   margin-left: 20px;

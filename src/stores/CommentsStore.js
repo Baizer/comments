@@ -9,7 +9,7 @@ class Comment {
     this.children = [];
     this.highlight = false;
     this.data_id = coef ? Date.now() + coef : Date.now();
-    this.date = Date.now();
+    this.date = coef ? Date.now() + coef : Date.now();
     this.likes = coef ? 0 + coef : 0;
   }
 
